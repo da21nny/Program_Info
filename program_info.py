@@ -43,13 +43,18 @@ def verificar_actualizaciones():
                 
                 # Si hay al menos 4 columnas identificadas, procesamos la información
                 if len(columnas) >= 4:
-                    hay_actualizaciones = True
-                    nombre_app = columnas[0]
+                    if not hay_actualizaciones:
+                        # Si es el primero que encontramos, imprimimos el encabezado de la tabla
+                        print(f"{'NOMBRE DEL PROGRAMA':<50} | {'VERSIÓN ACTUAL':<20} | {'NUEVA VERSIÓN':<20}")
+                        print("-" * 96)
+                        hay_actualizaciones = True
+                    
+                    nombre_app = columnas[0][:48] # Truncar si es extremadamente largo para no romper la tabla
                     version_actual = columnas[2]
                     version_nueva = columnas[3]
                     
-                    # Imprimir estrictamente en el formato solicitado
-                    print(f"{nombre_app} - {version_actual} - {version_nueva}")
+                    # Imprimir fila de la tabla con alineación
+                    print(f"{nombre_app:<50} | {version_actual:<20} | {version_nueva:<20}")
 
         if not hay_actualizaciones:
             print("Todos tus programas están actualizados o no se encontraron coincidencias en los repositorios.")
