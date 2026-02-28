@@ -1,4 +1,4 @@
-# Program_Info
+# WinApp-Monitor
 
 `program_info.py` es un pequeño script en **Python** pensado para sistemas Windows 10/11 que consulta el administrador de paquetes **winget** y muestra un listado de las aplicaciones instaladas que pueden actualizarse.
 
